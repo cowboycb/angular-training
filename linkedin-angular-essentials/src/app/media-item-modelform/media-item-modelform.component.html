@@ -1,0 +1,35 @@
+
+<form [formGroup]="mediaItemForm" (ngSubmit)="onSubmit(mediaItemForm.value)" >
+  <ul>
+    <li>
+      <label for="name">Başlık</label>
+      <input name="name" id="name" formControlName="name" >
+
+    </li>
+    <li>
+      <label for="medium">Tür</label>
+      <select name="medium" id="medium" formControlName="medium">
+        <option value="Movies">Movies</option>
+        <option value="Series">Series</option>
+      </select>
+
+    </li>
+    <li>
+
+      <label for="date"></label>
+    <input name="date" id="date" formControlName="date" >
+    </li>
+    <li>
+      <button type="submit"> Kaydet </button>
+    </li>
+  </ul>
+
+
+
+
+
+
+
+
+
+  </form>
