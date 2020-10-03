@@ -2,11 +2,13 @@
 
 <p [ngStyle]="{'background-color': mediaItem.id === 2 ? 'red' : ''}"> Id: {{ mediaItem.id }} </p>
 <p> Name: {{ mediaItem.name }} </p>
+<p> Name: {{ mediaItem.name | uppercase}} </p>
 <p> Date: {{ mediaItem.date }} </p>
-<p> watchedOn: {{ mediaItem.watchedOn }} </p>
+<p> watchedOn: {{ mediaItem.watchedOn | date: 'shortDate'}} </p>
 <p *ngIf="mediaItem.watchedOn"> watchedOn: {{ mediaItem.watchedOn }} </p>
 <ng-template [ngIf]="mediaItem.watchedOn">watchedOn {{ mediaItem.watchedOn }} </ng-template>
-
+<p [mwFavorite]>Favorite</p>
+<p [mwFavorite]="mediaItem.isFavorite">FavoriteItem</p>
 <button (click)="deleteItem()">Sil</button>
 
 </div>

@@ -14,28 +14,32 @@ export class MediaItemListComponent implements OnInit {
       date: "2020-05-13",
       medium: "Movies",
       // watchedOn: 112233
-      watchedOn: null
+      watchedOn: null,
+      isFavorite: true
     },
     {
       id: 2,
       name: "Second Media Item",
       date: "2020-06-14",
       medium: "Movies",
-      watchedOn: 112233
+      watchedOn: 112233,
+      isFavorite: true
     },
     {
       id: 3,
       name: "Third Media Item",
       date: "2020-07-15",
       medium: "Series",
-      watchedOn: 4455
+      watchedOn: 4455,
+      isFavorite: false
     },
     {
       id: 4,
       name: "Fourth Media Item",
       date: "2020-08-16",
       medium: "Series",
-      watchedOn: 6667777
+      watchedOn: 6667777,
+      isFavorite: false
     }
   ];
 
