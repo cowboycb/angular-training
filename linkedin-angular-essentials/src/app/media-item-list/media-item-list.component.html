@@ -1,5 +1,13 @@
 <section>
 
+  <header>
+    <div style="padding: 5px; width: 80%; border: 1px solid lightslategrey;">
+      {{ mediaItems | join: '-'}}
+    </div>
+    <div style="padding: 5px; width: 80%; border: 1px solid magenta; margin: 5px;">
+      {{ mediaItems | join}}
+    </div>
+  </header>
 
   <!-- <mw-media-item *ngFor="let item of mediaItems"
     [mediaItem]="item"
