@@ -1,0 +1,12 @@
+<div style="display: block; border: 1px solid springgreen;">
+
+<p [ngStyle]="{'background-color': mediaItem.id === 2 ? 'red' : ''}"> Id: {{ mediaItem.id }} </p>
+<p> Name: {{ mediaItem.name }} </p>
+<p> Date: {{ mediaItem.date }} </p>
+<p> watchedOn: {{ mediaItem.watchedOn }} </p>
+<p *ngIf="mediaItem.watchedOn"> watchedOn: {{ mediaItem.watchedOn }} </p>
+<ng-template [ngIf]="mediaItem.watchedOn">watchedOn {{ mediaItem.watchedOn }} </ng-template>
+
+<button (click)="deleteItem()">Sil</button>
+
+</div>

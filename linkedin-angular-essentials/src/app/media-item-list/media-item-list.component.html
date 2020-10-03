@@ -1,0 +1,18 @@
+<section>
+
+
+  <!-- <mw-media-item *ngFor="let item of mediaItems"
+    [mediaItem]="item"
+    (deletex)="onMediaItemDelete($event)"
+    [ngClass]="{ 'medium-movies': item.medium === 'Movies', 'medium-series': item.medium === 'Series'}"></mw-media-item> -->
+
+    <!-- ---------------------------------------------------------- -->
+    <!-- Using "class" binding is recommended rather than "ngClass" -->
+    <!-- https://angular.io/guide/attribute-binding#class-binding -->
+    <!-- ---------------------------------------------------------- -->
+    <mw-media-item *ngFor="let item of mediaItems"
+    [mediaItem]="item"
+    (deletex)="onMediaItemDelete($event)"
+    [class]="{ 'medium-movies': item.medium === 'Movies', 'medium-series': item.medium === 'Series'}"></mw-media-item>
+
+</section>
