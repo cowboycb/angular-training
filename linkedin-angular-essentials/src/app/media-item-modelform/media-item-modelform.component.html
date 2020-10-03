@@ -4,7 +4,12 @@
     <li>
       <label for="name">Başlık</label>
       <input name="name" id="name" formControlName="name" >
-
+        <div *ngIf="mediaItemForm.get('name').hasError('pattern')" style="color: red;">
+          Name has invalid characters
+        </div>
+        <div *ngIf="mediaItemForm.get('name').hasError('required')" style="color: red;">
+          Name is required
+        </div>
     </li>
     <li>
       <label for="medium">Tür</label>
@@ -18,9 +23,12 @@
 
       <label for="date"></label>
     <input name="date" id="date" formControlName="date" >
+    <div *ngIf="mediaItemForm.get('date').errors as dateErrors" style="color: red;">
+      Must be between {{ dateErrors.year.min }} and {{ dateErrors.year.max }}
+    </div>
     </li>
     <li>
-      <button type="submit"> Kaydet </button>
+      <button type="submit" [disabled]="!mediaItemForm.valid"> Kaydet </button>
     </li>
   </ul>
 
