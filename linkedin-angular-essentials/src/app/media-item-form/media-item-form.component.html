@@ -1,0 +1,35 @@
+
+<form #mediaItemForm="ngForm" (ngSubmit)="onSubmit(mediaItemForm.value)" >
+<ul>
+  <li>
+    <label for="name">Başlık</label>
+    <input name="name" id="name" ngModel #name="ngModel">
+
+  </li>
+  <li>
+    <label for="medium">Tür</label>
+    <select name="medium" id="medium" ngModel #medium="ngModel">
+      <option value="medium">Medium</option>
+      <option value="series">Series</option>
+    </select>
+
+  </li>
+  <li>
+
+    <label for="date"></label>
+  <input name="date" id="date" ngModel #date="ngModel">
+  </li>
+  <li>
+    <button type="submit"> Kaydet </button>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+</form>

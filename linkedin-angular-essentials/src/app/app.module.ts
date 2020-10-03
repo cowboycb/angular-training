@@ -7,6 +7,8 @@ import { MediaItemComponent } from './media-item/media-item.component';
 import { MediaItemListComponent } from './media-item-list/media-item-list.component';
 import { FavoriteDirective } from './directives/favorite.directive';
 import { JoinPipe } from './pipes/join.pipe';
+import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { JoinPipe } from './pipes/join.pipe';
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective,
-    JoinPipe
+    JoinPipe,
+    MediaItemFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
