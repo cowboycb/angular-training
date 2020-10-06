@@ -14,8 +14,7 @@
     <li>
       <label for="medium">Tür</label>
       <select name="medium" id="medium" formControlName="medium">
-        <option value="Movies">Movies</option>
-        <option value="Series">Series</option>
+        <option *ngFor="let mediumi of lookupList.mediums" [value]="mediumi"> {{ mediumi }} </option>
       </select>
 
     </li>

@@ -1,6 +1,7 @@
 import { MediaItemService } from './../services/media-item.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { lookupListToken } from '../providers';
 
 @Component({
   selector: 'mw-media-item-modelform',
@@ -11,7 +12,9 @@ export class MediaItemModelformComponent implements OnInit {
 
   mediaItemForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
-    private mediaItemService: MediaItemService) { }
+    private mediaItemService: MediaItemService,
+    // @Inject("lookupListToken") public lookupList) { }
+    @Inject(lookupListToken) public lookupList) { }
 
   ngOnInit(): void {
     this.mediaItemForm = this.formBuilder.group({

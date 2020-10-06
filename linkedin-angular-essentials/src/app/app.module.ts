@@ -10,6 +10,16 @@ import { JoinPipe } from './pipes/join.pipe';
 import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MediaItemModelformComponent } from './media-item-modelform/media-item-modelform.component';
+// injection token second method - this method is recommended.
+import {lookupListToken, lookupList } from './providers'
+
+
+// injection token first method
+// const lookupList = {
+//    mediums: ["Movies", "Series"]
+// }
+
+
 
 @NgModule({
   declarations: [
@@ -27,7 +37,10 @@ import { MediaItemModelformComponent } from './media-item-modelform/media-item-m
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    // { provide: "lookupListToken", useValue: lookupList }
+    { provide: lookupListToken, useValue: lookupList }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
