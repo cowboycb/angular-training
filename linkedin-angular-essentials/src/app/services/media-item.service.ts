@@ -1,11 +1,14 @@
 import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: "root"
 })
 export class MediaItemService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   mediaItems = [
     {
@@ -42,25 +45,44 @@ export class MediaItemService {
     }
   ];
 
-get(){
-  return this.mediaItems;
-}
+  get(medium) {
+    // return this.mediaItems;
+    const options = {
+        params: { medium }
+    }
+    return this.httpClient.get<MediaItemResponse>('mediaItems', options)
+      .pipe(map(response => {
+        return response.mediaItems;
+      }));
+  }
 
-add(mediaItem){
-  this.mediaItems.push(mediaItem);
-}
+  add(mediaItem) {
+    this.mediaItems.push(mediaItem);
+  }
 
-delete(mediaItem){
-  let index = this.mediaItems.indexOf(mediaItem);
-  console.log("Delete index ", index);
-  if (index>=0){
-    this.mediaItems.splice(index, 1);
-    console.log(this.mediaItems);
+  delete(mediaItem) {
+    let index = this.mediaItems.indexOf(mediaItem);
+    console.log("Delete index ", index);
+    if (index >= 0) {
+      this.mediaItems.splice(index, 1);
+      console.log(this.mediaItems);
+    }
+  }
+
+  set(mediaItems) {
+    this.mediaItems = mediaItems;
   }
 }
 
-set(mediaItems){
-  this.mediaItems = mediaItems;
+interface MediaItem{
+  id: number;
+  name: string;
+  medium: string;
+  date: string;
+  watchedOn: number;
+  isFavorite: boolean;
 }
 
+interface MediaItemResponse{
+  mediaItems: MediaItem[];
 }

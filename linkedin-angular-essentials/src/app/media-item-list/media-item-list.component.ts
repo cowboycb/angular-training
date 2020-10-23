@@ -8,16 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MediaItemListComponent implements OnInit {
   mediaItems;
+  medium: string = "";
 
   constructor(private mediaItemService: MediaItemService) { }
 
   ngOnInit(): void {
-    this.mediaItems = this.mediaItemService.get();
+    this.getMediaItems(this.medium);
   }
 
-  onMediaItemDelete(mediaItem){
+  onMediaItemDelete(mediaItem) {
     console.log("deleting", mediaItem);
     this.mediaItemService.delete(mediaItem);
+  }
+
+  getMediaItems(medium: string) {
+    // this.mediaItems = this.mediaItemService.get();
+    this.medium = medium;
+    this.mediaItemService.get(this.medium).subscribe(mediaItems => {
+        this.mediaItems = mediaItems;
+    });
   }
 
 }
